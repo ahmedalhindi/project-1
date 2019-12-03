@@ -26,6 +26,8 @@ const game = {
     win: [],
     p1Plays: [],
     p2Plays: [],
+    p1Score: 0,
+    p2Score: 0,
     winConditions: [
         [0,1,2],
         [3,4,5],
@@ -66,9 +68,16 @@ const game = {
         if(p1){
             //alert("player 1 wins")
             game.win="p1"
+            game.p1Score +=1;
+            $('.p1Score').text(game.p1Score);
+            Swal.fire(`${$('.p1').val()}Wins`)
+
         } else if(p2) {
             //alert("player 2 wins")
-            game.win="p2"
+            game.win="p2";
+            game.p2Score +=1;
+            $('.p2Score').text(game.p2Score);
+            Swal.fire(`${$('.p2').val()}Wins`)
         }
     
         
@@ -118,39 +127,32 @@ const game = {
         
            //##########
         // //Attempt4
-        // let i = 0;
-        // set = new Set(set);
-        // const listOfWinConditionsSets = game.winConditions.map(
-        //     winCondition => new Set(winCondition));
-        // for(const winConditionSet of listOfWinConditionsSets){
-        //     for(const winElement of winConditionSet){
-        //         if(set.has(winElement))
-        //             i += 1;
-        //             if(i>=3){return true}else{
-        //                 return false;
-        //             }
-        //     }
-        // }
-        
-        //##########
-        //Attempt5
         let i = 0;
         set = new Set(set);
-
         const listOfWinConditionsSets = game.winConditions.map(
             winCondition => new Set(winCondition));
-
-        for(winCondition of listOfWinConditionsSets){
-            if(intersection(winCondition, set).size>=3){
-                return true
-            }else{
-                return false
+        for(const winConditionSet of listOfWinConditionsSets){
+            for(const winElement of winConditionSet){
+                if(set.has(winElement))
+                    i += 1;}
+                    
+            if(i===3){return true}else{
+                i = 0;
             }
         }
-
-
         
+        //##########
+        // //Attempt5
+        // set = new Set(set);
+        
+        // const listOfWinConditionsSets = game.winConditions.map(
+        //     winConditionSet => new Set(winCondition));
 
+        // for(winConditionSet of listOfWinConditionsSets){
+        //     if(intersection(winConditionSet, set).size>=3){
+        //         return true
+        //     }
+        // }
     }
     
 }
@@ -204,6 +206,7 @@ function play(event){
 }
 
 $('.grid div').on('click',play);
+
 
 // //###########
 // //input from jquery to object
