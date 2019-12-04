@@ -216,7 +216,7 @@ function play(event){
     //switching players 
     if(game.turn%2==0){
         $(event.target).css({
-            'background-image':'url("../img/x.png")',
+            'background-image':'url("./img/x.png")',
             'background-size':'80%',
             'background-repeat':'no-repeat',
             'background-position':'center'});
@@ -228,7 +228,7 @@ function play(event){
         game.checkWinner();
     }else{
         $(event.target).css({
-            'background-image':'url("../img/o.png")',
+            'background-image':'url("./img/o.png")',
             'background-size':'80%',
             'background-repeat':'no-repeat',
             'background-position':'center'});

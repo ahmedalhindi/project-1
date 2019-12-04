@@ -54,6 +54,8 @@ input, .newGame {
     flex-flow:row wrap;
     width:80vw;
     height:80vw;
+    max-width:600px;
+    max-height:600px;
 
     
     background-image: url('../img/grid.png');
@@ -66,7 +68,11 @@ input, .newGame {
     background-color: transparent;
     width:calc(100% / 3);
     height:calc(100% / 3);
-    
+}
+footer{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height:5vh;
 
 }
-
