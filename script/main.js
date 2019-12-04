@@ -28,6 +28,9 @@ const game = {
     p2Plays: [],
     p1Score: 0,
     p2Score: 0,
+    playData:[],
+    vsCPU: false,
+    turn:0,
     winConditions: [
         [0,1,2],
         [3,4,5],
@@ -64,21 +67,39 @@ const game = {
             //console.log(this.isWin(this.p1Plays))
         let p1 = this.isWin(this.p1Plays);
         let p2 = this.isWin(this.p2Plays);
+        if(game.p1Plays.length + game.p2Plays.length == 9 ){
+            Swal.fire(`It's a Draw!`)
+            .then(function(res){
+                game.newGame();
+            });
 
+        }
         if(p1){
             //alert("player 1 wins")
-            game.win="p1"
+            game.win=1
             game.p1Score +=1;
             $('.p1Score').text(game.p1Score);
-            Swal.fire(`${$('.p1').val()}Wins`)
+            Swal.fire(`${$('.p1').val()} Wins!`)
+            .then(function(res){
+                game.newGame();
+            });
+            
+            game.turn=1;
+            
 
         } else if(p2) {
             //alert("player 2 wins")
-            game.win="p2";
+            game.win=2;
             game.p2Score +=1;
             $('.p2Score').text(game.p2Score);
-            Swal.fire(`${$('.p2').val()}Wins`)
+            Swal.fire(`${$('.p2').val()} Wins!`)
+            .then(function(res){
+                game.newGame();
+            })
+            game.turn=0;
         }
+        
+
     
         
         
@@ -153,6 +174,21 @@ const game = {
         //         return true
         //     }
         // }
+    },
+    newGame: function(){
+        //This collects previous game playes and result
+        game.playData.push(
+            game.p1Plays,game.p2Plays,
+            game.win)
+        game.grid=[0,0,0,0,0,0,0,0,0];
+        game.p1Plays=[];
+        game.p2Plays=[];
+        game.win=[];
+        $('.grid div').css('background-image','none');
+        $('.grid div').off();
+        $('.grid div').on("click", play);
+
+        
     }
     
 }
@@ -173,12 +209,12 @@ const game = {
 
 //#############
 //Interfacing to HTML CSS
-let turn = 0;
+
 function play(event){
     //The function that is called when a div is press
-    turn +=1;
+    
     //switching players 
-    if(turn%2==0){
+    if(game.turn%2==0){
         $(event.target).css({
             'background-image':'url("../img/x.png")',
             'background-size':'80%',
@@ -203,9 +239,11 @@ function play(event){
         game.p2Play(n);
         game.checkWinner();
     }
+    game.turn +=1;
 }
 
 $('.grid div').on('click',play);
+$('.newGame').on('click',game.newGame);
 
 
 // //###########

@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <HTML>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css" />
     </head>
     <body>
         <div class="mainContainer">
             <header>
                 <div class="scoreContainer">
-                    <div class="pImgX">X</div>
-                    <input class="p1" value="Player1"></input>
-                    <p class="p1Score">0</p>
-                    <p class="p2Score">0</p>
-                    <input class="p2" value="Player2"></input>
-                    <div class="pImgO">O</div>
+                    <div class="p1Div">
+                        <div class="pImgX">X</div>
+                        <input class="p1" value="Player1"></input>
+                        <p class="p1Score">0</p>
+                    </div>
+                    <div class="p2Div">
+                        <p class="p2Score">0</p>
+                        <input class="p2" value="Player2"></input>
+                        <div class="pImgO">O</div>
+                    </div>
                 </div>
             </header>
             <div class="grid">
@@ -26,11 +31,16 @@
                 <div class="7"></div>
                 <div class="8"></div>
             </div>
+            <footer>
+                <div class="footerContainer">
+                    <button class="newGame">New Game</button>
+                </div>
+            </footer>
         </div>
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script> <!-- linking to jQuery file -->
-        <script src="../script/main.js"></script> <!-- linking to exercise file -->
-        <!-- End Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <!-- Scripts -->
+            <script src="https://code.jquery.com/jquery-3.3.1.js"></script> <!-- linking to jQuery file -->
+            <script src="../script/main.js"></script> <!-- linking to exercise file -->
+            <!-- End Scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     </body>
 </HTML>

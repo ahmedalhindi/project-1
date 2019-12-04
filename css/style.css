@@ -1,48 +1,61 @@
 body{
     background-color:#D9E9ED;
-    
+    margin:0;
+    height:100vh;
 }
-header{
-    background-color:rgba(69, 92, 129, 0.5);
-    margin:0 15%;
-}
-.scoreContainer{
+.mainContainer{
     display:flex;
-    flex-direction: row;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    height:100vh;
+}
+footer, header{
+    background-color:darkcyan;
+    color:white;
+    width:100%;
+}
+
+.scoreContainer, .footerContainer{
+    display:flex;
+    flex-flow: row wrap;
     justify-content: space-around;
     align-items:center;
 }
+.p1Div, .p2Div{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    margin:10px;
+}
 .pImgX, .pImgO{
     margin:0 10px;
+    font-size:24px;
 }
-input{
+input, .newGame {
     background-color: rgb(42, 92, 98); /* Green */
     border: none;
     color: white;
-    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
     height:30px;
 }
-.scoreContainer p{
-    margin:16px;
+.p1Div p, .p2Div p{
+    margin:0 10px;
+    font-size:24px;
 
 }
-
-/* .mainContainer{
-    background-color:gray;
-    width: 50%;
-    height: 50%;
-}*/
 .grid{
 
     display:flex;
     flex-flow:row wrap;
-    width:500px;
+    width:80vw;
+    height:80vw;
 
-    margin: 20px auto;
+    
     background-image: url('../img/grid.png');
     background-size: 100%;
     background-position: center;
@@ -51,8 +64,9 @@ input{
 .grid div{
     box-sizing:border-box;
     background-color: transparent;
-    width:calc(500px / 3);
-    height:calc(500px / 3);
+    width:calc(100% / 3);
+    height:calc(100% / 3);
     
 
 }
+
