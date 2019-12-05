@@ -76,3 +76,8 @@ footer{
     height:5vh;
 
 }
+@media(max-width:684px){
+    .p2Div{
+        flex-direction:row-reverse;
+    }
+}
