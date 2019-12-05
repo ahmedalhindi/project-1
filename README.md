@@ -2,10 +2,22 @@
 <!-- Github markdown -->
 
 <!-- heading part -->
-# Project name
+# Tic tac toe
 
-* Js
-* Jquery
+This project is the fun little game of X and O, with the goal of applying skills learned as part of the GA Software Engineering Immersive 
+
+# Skills :
+
+- Javascript :
+    * Objects
+    * Arrays
+    * functions
+    * methods
+
+- Jquery :
+    * Asynchronous programming
+    * Interfacing Js, html and css.
+
 - Front End
     * HTML
     * CSS
